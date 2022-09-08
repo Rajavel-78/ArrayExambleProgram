@@ -1,0 +1,32 @@
+import java.util.*;
+class OddEvanPosition{
+	public static void main(String[] args) {
+		int[] arr={5,7,8,6,3};
+		Arrays.sort(arr);
+		int[] arr2=new int[arr.length];
+
+		
+		boolean isValid=true;
+		
+		int start=(int)(arr.length/2);
+		int end=(int)(arr.length/2);
+		if(arr.length%2==0){
+			start--;
+			end--;
+		}
+		for(int i=0;i<arr.length;i++){
+			if(isValid)
+			{
+              arr2[i]=arr[start];
+              isValid=false;
+              end++;
+			}
+			else{
+				arr2[i]=arr[end];
+				isValid=true;
+				start--;
+			}
+		}
+		System.out.println(Arrays.toString(arr2));
+	}
+}
